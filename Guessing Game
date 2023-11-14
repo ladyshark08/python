@@ -13,24 +13,27 @@ def guessing_game():
     while i < num_of_guesses:
         remaining = num_of_guesses - i
         print(f"you have {remaining} {'guesses' if remaining > 1 else 'guess'} left")
-        player_guess = int(input("What's the number:"))
-        if player_guess == computer_generated:
-            print("correct, Good Job")
-            return
+        try:
+            player_guess = int(input("What's the number:"))
+            if player_guess == computer_generated:
+                print("correct, Good Job")
+                return
 
-        elif player_guess < computer_generated:
-            if i == num_of_guesses - 1:
-                print("You did not guess the number correctly.Better Luck Next Time")
-                break
-            print("Try again, go higher")
+            elif player_guess < computer_generated:
+                if i == num_of_guesses - 1:
+                    print("You did not guess the number correctly.Better Luck Next Time")
+                    break
+                print("Try again, go higher")
 
-        elif player_guess > computer_generated:
-            if i == num_of_guesses - 1:
-                print("You did not guess the number correctly.Better Luck Next Time")
-                break
-            print("Try again, go lower")
+            elif player_guess > computer_generated:
+                if i == num_of_guesses - 1:
+                    print("You did not guess the number correctly.Better Luck Next Time")
+                    break
+                print("Try again, go lower")
 
-        i += 1
+            i += 1
+        except ValueError:
+            print("Please type in a valid number")
 
     print(f"correct number was {computer_generated}")
 
