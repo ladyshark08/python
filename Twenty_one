@@ -1,0 +1,29 @@
+def play_twenty_one():
+    list_of_numbers = [0]
+    players = []
+    num_of_players = int(input("How many players: "))
+    for i in range(num_of_players):
+        name = input("What is your name: ")
+        players.append(name)
+    while True:
+        for player in players:
+            print(f"{player}:")
+            round = int(input("How many numbers would you like play: "))
+            if round > 3:
+                continue
+            for i in range(round):
+                number = int(input("please type your number:"))
+                if play(player,number,list_of_numbers) == "invalid":
+                    print(f"{player} loses")
+                    return
+
+
+def play(name: str, number: int, record: list):
+    if number > record[-1] + 1 or number == 13:
+        return "invalid"
+    record.append(number)
+    return "valid"
+
+play_twenty_one()
+
+
