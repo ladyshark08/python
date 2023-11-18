@@ -7,6 +7,7 @@ def play_twenty_one():
         players.append(name)
     while True:
         for player in players:
+            print(list_of_numbers)
             print(f"{player}:")
             round = int(input("How many numbers would you like play: "))
             if round > 3:
@@ -19,7 +20,7 @@ def play_twenty_one():
 
 
 def play(name: str, number: int, record: list):
-    if number > record[-1] + 1 or number == 13:
+    if number > record[-1] + 1 or number == 21:
         return "invalid"
     record.append(number)
     return "valid"
